@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, authentication, permissions
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
 
@@ -14,3 +14,15 @@ class CreateTokenView(ObtainAuthToken):
     """Create a new auth token for user"""
     serializer_class = AuthTokenSerializer
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
+
+class ManageUserView(generics.RetrieveUpdateAPIView):
+    """Manage the authenticated user"""
+    serializer_class = UserSerializer
+    authentication_classes = (authentication.TokenAuthentication,) # cookie , Token 등등
+    permission_classes = (permissions.IsAuthenticated,)   # 등록된 유저만 접근할수 있도록함
+
+    # retrieve and return authenticated user
+    # this method is also required for update (patch)
+    def get_object(self):
+        """Retrieve and return authentication user"""
+        return self.request.user
