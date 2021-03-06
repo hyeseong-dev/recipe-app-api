@@ -9,6 +9,7 @@ router = DefaultRouter()
 #reverse url is 'recipe:tag-list'
 router.register('tags', views.TagViewSet)
 router.register('ingredients', views.IngredientViewSet)
+router.register('recipes', views.RecipeViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
