@@ -1,6 +1,13 @@
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 
+from core import models
+
+
+def sample_user(email='test1@testtest.com', password='testpass'):
+    """Create a sample user"""
+    return get_user_model().objects.create_user(email, password)
+# 클래스 밖에서 함수를 생성해 둠으로써 클래스 안에서 호출시 메서드 호출만으로도 자유롭게 샘플 유저 객체생성이 가능
 
 class ModelTests(TestCase):
     def test_create_user_with_email_successful(self):
@@ -34,3 +41,11 @@ class ModelTests(TestCase):
         )
         self.assertTrue(user.is_superuser) # is_superuser 필드는 PermissionMixin클래스에 있는 변수명이에요.
         self.assertTrue(user.is_staff)
+
+    def test_tag_str(self):
+        """Test the tag string representation"""
+        tag = models.Tag.objects.create(
+            user=sample_user(), 
+            name='Vegan'
+        )
+        self.assertEqual(str(tag), tag.name)
