@@ -18,6 +18,11 @@ class BaseRecipeAttr(viewsets.GenericViewSet,
     # This method should be overriden
     # if we dont want to modify query set based on current instance attributes
     def get_queryset(self):
+        assigned_only = bool(self.request.query_params.get('assigned_only'))
+        queryset = self.queryset
+        if assigned_only:
+            # Django also allows access of reverse relation in foreign keys
+            queryset = queryset.filter(recipe__isnull=False)
         return self.queryset.filter(user=self.request.user).order_by('-name')
 
     # override this method for CreateModelMixin
@@ -34,12 +39,7 @@ class TagViewSet(BaseRecipeAttr):
 
 
     def get_queryset(self):
-        assigned_only = bool(self.request.query_params.get('assigned_only'))
-        queryset = self.queryset
-        if assigned_only:
-            # Django also allows access of reverse relation in foreign keys
-            queryset = queryset.filter(recipe__isnull=False)
-        return queryset.filter(user=self.request.user).order_by('-name')
+        return self.queryset.filter(user=self.request.user).order_by('-name')
 
 class IngredientViewSet(BaseRecipeAttr):
     """Manage ingredients in the databases"""

@@ -12,7 +12,7 @@ from rest_framework.test import APIClient
 
 from core.models import Recipe, Tag, Ingredient
 
-from recipe.serializers import RecipeSerializer, RecipeDetailSerializer
+from recipe.serializers import RecipeSerializer, RecipeDetailSerializer, TagSerializer
 
 
 RECIPES_URL = reverse('recipe:recipe-list')
@@ -234,7 +234,7 @@ class RecipeImgaeUploadTests(TestCase):
     # test filtering recipes
     def test_filter_recipes_by_tag(self):
         recipe1 = sample_recipe(user=self.user, title='Thai veg curry')
-        recipe2 = sample_recipe(user=self.user, title='Italian Tahini')
+        recipe2 = sample_recipe(user=self.user, title='Aubergine with tahini')
         tag1 = sample_tag(user=self.user, name='Vegan')
         tag2 = sample_tag(user=self.user, name='Vegetarian')
         recipe1.tags.add(tag1)
@@ -274,7 +274,7 @@ class RecipeImgaeUploadTests(TestCase):
         serializer3 = RecipeSerializer(recipe3)
         self.assertIn(serializer1.data, res.data)
         self.assertIn(serializer2.data, res.data)
-        self.assertIn(serializer3.data, res.data)
+        # # self.assertIn(serializer3.data, res.data)
         # self.assertNotIn(serializer3.data, res.data)
 
-        
+        # filter tags assigned to recipes
