@@ -10,9 +10,10 @@
 Django REST Framework를 이용해서 API구현
 
 
-## 설치방법
-* > git clone https://github.com/hyeseong-dev/2020-9-20-movie_web_scrapping.git
-* > pip install django beautifulsoup4 requests
+## 따라가기
+링크 - https://velog.io/@hyeseong-dev/series/Build-a-Backend-REST-API-with-Python-Django-Advanced
+
+
 
 
 ## 구현한 기능 
