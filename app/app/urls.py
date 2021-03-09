@@ -8,9 +8,9 @@ from rest_framework import permissions
 
 schema_view = get_schema_view( 
     openapi.Info( 
-        title="Swagger Study API", 
+        title="Recipe App API", 
         default_version="v1", 
-        description="Swagger Study를 위한 API 문서", 
+        description="Docker, Travis-CI, DRF를 이용한 API 문서", 
         terms_of_service="https://www.google.com/policies/terms/", 
         contact=openapi.Contact(name="test", email="test@test.com"), 
         license=openapi.License(name="Test License"), 
