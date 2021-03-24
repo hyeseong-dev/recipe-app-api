@@ -9,7 +9,7 @@
 ## 목적
 Django REST Framework를 이용해서 API구현
 
-## 따라하기 - 목차(1~51)
+## 목차(1~51)
 ![image](https://user-images.githubusercontent.com/57933835/112258912-ac6bb180-8caa-11eb-9a2e-77c7d4ca6510.png)
 
 
