@@ -9,8 +9,9 @@
 ## 목적
 Django REST Framework를 이용해서 API구현
 
-## 따라하기 - 목차
-![image](https://user-images.githubusercontent.com/57933835/112258679-3e26ef00-8caa-11eb-9a80-edbcb3664d68.png)
+## 따라하기 - 목차(1~51)
+![image](https://user-images.githubusercontent.com/57933835/112258912-ac6bb180-8caa-11eb-9a2e-77c7d4ca6510.png)
+
 
 관련링크 - https://velog.io/@hyeseong-dev/series/Build-a-Backend-REST-API-with-Python-Django-Advanced
 
